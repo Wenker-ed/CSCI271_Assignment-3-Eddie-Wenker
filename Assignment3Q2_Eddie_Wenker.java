@@ -11,7 +11,7 @@ public class Assignment3Q2_Eddie_Wenker {
         input.close();
 
         int Occurrences = OccurrencesCount(s, c);
-        System.out.println( c + " occurs " + Occurrences + " times in \"" + s);
+        System.out.println("\'" + c + "\' occurs " + Occurrences + " times in \"" + s + "\"");
     }
     
     public static int OccurrencesCount(String str, char c) {
@@ -20,7 +20,10 @@ public class Assignment3Q2_Eddie_Wenker {
             return 0;
         }
         // Recursive case: check the first character and add the count from the rest of the string
-        int count = (str.charAt(0) == c) ? 1 : 0;
+        int count = 0;
+        if (str.charAt(0) == c) {
+            count++;
+        }
         return count + OccurrencesCount(str.substring(1), c);
     }
 
