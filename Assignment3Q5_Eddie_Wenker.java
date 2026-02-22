@@ -8,7 +8,7 @@ public class Assignment3Q5_Eddie_Wenker {
         String s = input.nextLine();
 
         String reversed = reverseString(s);
-        System.out.println(s + " reversed is " + reversed);
+        System.out.println(s + " reversed: " + reversed);
 
         input.close();
     }
