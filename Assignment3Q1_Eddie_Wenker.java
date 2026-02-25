@@ -7,10 +7,10 @@
 * Date: February 21, 2026
 *
 * Purpose
-* This program uses a Fraction class to perform arithmetic operations
-* on fractions including addition, subtraction, multiplication, division,
-* negation, and exponentiation. It also simplifies fractions and handles
-* special cases like zero and infinity.
+* This program uses a function to recursively calculate the length of a string. 
+* It prompts the user to enter a string and then displays the length of that string
+* by calling the recursive function recursiveLength with the string as an argument.
+*
 **************************************************************************
 * I declare and confirm the following:
 * - I have not discussed this program code with anyone other than my
@@ -33,13 +33,14 @@ import java.util.Scanner;
 public class Assignment3Q1_Eddie_Wenker {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String s = input.nextLine();
-        input.close();
 
-        int length = recursiveLength(s);
-        System.out.println("Length of the string \"" + s + "\" is: " + length);
+        Scanner input = new Scanner(System.in); // Create a Scanner object to read user input
+        System.out.print("Enter a string: "); // Prompt the user to enter a string
+        String s = input.nextLine(); // Read the entire line of input as a string and store it in variable s
+        input.close(); 
+
+        int length = recursiveLength(s); // Call the recursive function to find the length of the string and store the result in variable length
+        System.out.println("Length of the string \"" + s + "\" is: " + length); // Print the length of the string
     }
     
     /*****************************<recursiveLength>****************************
@@ -47,18 +48,16 @@ public class Assignment3Q1_Eddie_Wenker {
     *   
     * Parameters: str - the string whose length is to be calculated.
     *
-    * Pre: The string exists.
+    * Pre: The string exists (it can be zero-length).
     *
     * Post: The length of the string is returned.
     *
     * Returns: The length of the string.
     *
-    * Called by: main method.
+    * Called by: main.
     * Calls: It calls itself recursively.
     ************************************************************************/
     public static int recursiveLength(String str) {
-        int runTime = str.length();
-        System.out.println("This is one run (0 is base case): " + runTime);
         // Base case: if the string is empty, return 0
         if (str.isEmpty()) {
             return 0;
@@ -66,5 +65,11 @@ public class Assignment3Q1_Eddie_Wenker {
 
         // Recursive case: return 1 + length of the substring excluding the first character
         return 1 + recursiveLength(str.substring(1));
+        // n is the length of the string, and each recursive call reduces the length by 1 until it reaches 0 (base case).
+        // The work inside each call is constant time.
+        // The number of recursive calls is equal to the length of the string, leading to a time complexity of O(n).
+        // T(n) = T(n-1) + O(1)
+        // = T(0) + O(n)
+        // = O(n)
     }
-}//Calculate Running Time!
+}
