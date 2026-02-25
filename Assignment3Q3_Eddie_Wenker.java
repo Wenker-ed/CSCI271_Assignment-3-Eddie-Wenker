@@ -7,10 +7,10 @@
 * Date: February 21, 2026
 *
 * Purpose
-* This program uses a Fraction class to perform arithmetic operations
-* on fractions including addition, subtraction, multiplication, division,
-* negation, and exponentiation. It also simplifies fractions and handles
-* special cases like zero and infinity.
+* This program uses a function to recursively find the maximum value in an array of integers.
+* It prompts the user to enter integers until they choose to quit, stores those integers in an
+* array, and then displays the maximum value found in that array by calling the recursive function max
+* with the array and the number of elements as arguments.
 **************************************************************************
 * I declare and confirm the following:
 * - I have not discussed this program code with anyone other than my
@@ -33,43 +33,42 @@ import java.util.Scanner;
 public class Assignment3Q3_Eddie_Wenker {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int count = 0;
+
+        Scanner input = new Scanner(System.in); // Create a Scanner object to read user input
+
+        int count = 0; // Initialize a counter to keep track of the number of integers entered
         int A[] = new int[100]; // Create an array to store the entered numbers
 
-        while (true) 
+        while (true) // Start a while loop to continuously prompt the user for input until they choose to quit
         {
-            System.out.print("Enter an integer or ('q' to quit): ");
-            String line = input.nextLine();
+            System.out.print("Enter an integer or ('q' to quit): "); // Prompt the user to enter an integer or 'q' to quit
+            String line = input.nextLine(); // Read the user's input as a string and store it in variable line
 
-            if (line.equals("q")) {
+            if (line.equals("q")) { // If the user enters 'q', break out of the loop to stop accepting input
                 break;
             }
 
-            int num = Integer.parseInt(line);
-            A[count] = num; // Store the entered number in the array
-            count++;
+            int num = Integer.parseInt(line); // Convert the entered string to an integer and store it in variable num
+            A[count] = num; // Store the entered number in the array in the corresponding index based on the count
+            count++; // Increment the count to keep track of how many integers have been entered
         }
 
-        for (int i = 0; i < count; i++) {
-            System.out.println(i + ": " + A[i]);
-        }
+        input.close();// No more input is needed, so close the Scanner
 
-        input.close();
-        int maxValue = max(A, count);
-        System.out.println("The maximum value in the array is: " + maxValue);
+        int maxValue = max(A, count); // Call the recursive function to find the maximum value in the array and store the result in variable maxValue
+        System.out.println("The maximum value in the array is: " + maxValue); // Print the maximum value found in the array to the user
     }
     
     /*****************************<max>****************************
     * Description: Recursively finds the maximum value in an array.
     *   
-    * Parameters: A - the array of integers, n - the number of elements to consider.
+    * Parameters: int array A - the array of integers, int n - the number of elements to consider.
     *
     * Pre: The array and the number of elements exist.
     *
-    * Post: The maximum value in the array is returned.
+    * Post: The maximum integer value in the array is returned.
     *
-    * Returns: The maximum value in the array.
+    * Returns: The maximum integer value in the array.
     *
     * Called by: main method.
     * Calls: It calls itself recursively.
@@ -78,15 +77,22 @@ public class Assignment3Q3_Eddie_Wenker {
         System.out.println("This is one run (0 is base case): " + n);
         // Base case: if reach the last element, return it
         if (n == 0) {
-            return A[n];
+            return A[n]; // At this point, the maximum value is determined from the recursive calls, so return the last element to stop recusing.
         }
-        // Recursive case: find the max of the rest of the array 
-        int maxOfRest = max(A, n - 1);
-        if (A[n] > maxOfRest) {
-            return A[n];
-        } else {
-            return maxOfRest;
+        // Recursive case: find the max of the rest of the array for every element besides the last one, 
+        // then compare the current element A[n] to the maximum found in each recursive call and return the greater of the two
+        int maxOfRest = max(A, n - 1); // Recurse on the array with one less element
+        if (A[n] > maxOfRest) { // If the current element A[n] is greater than the current maximum found in each recursive call
+            return A[n]; // current element is greater
+        } else { // current maximum is greater
+            return maxOfRest; // Return the maximum value found in the rest of the array
         }
+        // n is the number of elements to consider (length of the array -1), and each recursive call reduces n by 1 until it reaches 0 (base case).
+        // The work inside each call is constant time.
+        // The number of recursive calls is equal to the number of elements in the array, leading to a time complexity of O(n).
+        // T(n) = T(n-1) + O(1)
+        // = T(0) + O(n)
+        // = O(n)
     }
 }
 
