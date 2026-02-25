@@ -33,40 +33,45 @@ import java.util.Scanner;
 public class Assignment3Q5_Eddie_Wenker {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter a string: ");
-        String s = input.nextLine();
+        Scanner input = new Scanner(System.in); // Create a Scanner object to read user input
 
-        String reversed = reverseString(s);
-        System.out.println(s + " reversed: " + reversed);
+        System.out.println("Enter a string: "); // Prompt the user to enter a string
+        String s = input.nextLine(); // Read the entire line of input as a string and store it in variable s
 
-        input.close();
+        String reversed = reverseString(s); // Call the recursive function to reverse the string and store the result in variable reversed
+        System.out.println(s + " reversed: " + reversed); // Print the original string and the reversed string
+
+        input.close(); // No more input is needed, so close the Scanner
     }
 
     /*****************************<reverseString>****************************
     * Description: Recursively reverses a string.
     *   
-    * Parameters: str - the string to reverse.
+    * Parameters: string str - the string to reverse.
     *
-    * Pre: The string exists.
+    * Pre: The string exists (can be empty).
     *
     * Post: The reversed string is returned.
     *
     * Returns: The reversed string.
     *
-    * Called by: main method.
+    * Called by: main.
     * Calls: It calls itself recursively.
     ************************************************************************/
     public static String reverseString(String str) {
-        int runTime = str.length();
-        System.out.println("This is one run (0 is base case): " + runTime);
         // Base case: if the string is empty, return an empty string
         if (str.isEmpty()) {
-            return "";
+            return "";// At this point, the reversed string is determined from the recursive calls, so return an empty string to stop recusing.
         }
 
-        // Recursive case: return the last character + reverse of the substring excluding the last character
+        // Recursive case: return the last character + reverse of the substring excluding the last character (n-1)
         return str.charAt(str.length() - 1) + reverseString(str.substring(0, str.length() - 1));
+        // n is the length of the string, and each recursive call reduces the length by 1 until it reaches 0 (base case).
+        // The work inside each call is constant time.
+        // The number of recursive calls is equal to the length of the string, leading to a time complexity of O(n).
+        // T(n) = T(n-1) + O(1)
+        // = T(0) + O(n)
+        // = O(n)
     }
     
 }
