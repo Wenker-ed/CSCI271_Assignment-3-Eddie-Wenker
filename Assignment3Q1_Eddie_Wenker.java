@@ -60,7 +60,7 @@ public class Assignment3Q1_Eddie_Wenker {
     public static int recursiveLength(String str) {
         // Base case: if the string is empty, return 0
         if (str.isEmpty()) {
-            return 0; // At this point, the length of the string is calculated from the recursive calls, so return 0 to stop recusing.
+            return 0; // At this point, the length of the string is calculated from the recursive calls, so return 0 to stop recursing.
         }
 
         // Recursive case: return 1 + length of the substring excluding the first character (n-1)

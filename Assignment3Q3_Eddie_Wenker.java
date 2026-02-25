@@ -77,7 +77,7 @@ public class Assignment3Q3_Eddie_Wenker {
         System.out.println("This is one run (0 is base case): " + n);
         // Base case: if reach the last element, return it
         if (n == 0) {
-            return A[n]; // At this point, the maximum value is determined from the recursive calls, so return the last element to stop recusing.
+            return A[n]; // At this point, the maximum value is determined from the recursive calls, so return the last element to stop recursing.
         }
         // Recursive case: find the max of the rest of the array for every element besides the last one, 
         // then compare the current element A[n] to the maximum found in each recursive call and return the greater of the two

@@ -65,7 +65,7 @@ public class Assignment3Q2_Eddie_Wenker {
     public static int OccurrencesCount(String str, char c) {
         // Base case: if the string is empty, return 0
         if (str.isEmpty()) {
-            return 0; // At this point, the count of occurrences is calculated from the recursive calls, so return 0 to stop recusing.
+            return 0; // At this point, the count of occurrences is calculated from the recursive calls, so return 0 to stop recursing.
         }
         // if the string is not empty, check if the first character matches the character we are counting
         int count = 0; // Initialize the character count to 0 for this call

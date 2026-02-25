@@ -60,7 +60,7 @@ public class Assignment3Q5_Eddie_Wenker {
     public static String reverseString(String str) {
         // Base case: if the string is empty, return an empty string
         if (str.isEmpty()) {
-            return "";// At this point, the reversed string is determined from the recursive calls, so return an empty string to stop recusing.
+            return "";// At this point, the reversed string is determined from the recursive calls, so return an empty string to stop recursing.
         }
 
         // Recursive case: return the last character + reverse of the substring excluding the last character (n-1)

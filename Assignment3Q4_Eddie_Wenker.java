@@ -73,7 +73,7 @@ public class Assignment3Q4_Eddie_Wenker {
 
         // Base case: if N is 0 (entire N has been searched), return 0
         if (N == 0) {
-            return 0; // At this point, the count of occurrences is calculated from the recursive calls, so return 0 to stop recusing.
+            return 0; // At this point, the count of occurrences is calculated from the recursive calls, so return 0 to stop recursing.
         }
 
         // Recursive case: check the last digit and recurse on the rest
