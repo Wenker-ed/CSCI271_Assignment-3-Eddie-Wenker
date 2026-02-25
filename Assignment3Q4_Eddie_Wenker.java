@@ -33,29 +33,31 @@ import java.util.Scanner;
 public class Assignment3Q4_Eddie_Wenker {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in); // Create a Scanner object to read user input
 
         long N = 3124587134762173548L; // Example number to count digits in
 
-        System.out.println("Enter a number to count digits in: ");
-        long userN = input.nextLong();
+        System.out.println("Enter a number to count digits in: "); // Prompt the user to enter a number
+        long userN = input.nextLong(); // Read the user's input as a long integer and store it in variable userN
 
-        System.out.println("Enter the digit to count: ");
-        int D = input.nextInt();
+        System.out.println("Enter the digit to count: "); // Prompt the user to enter a digit to count in the number
+        int D = input.nextInt(); // Read the user's input as an integer and store it in variable D (the digit to count)
 
-        int userHowMany = howManyDigits(userN, D);
-        System.out.println("The digit " + D + " occurs " + userHowMany + " times in " + userN + "\n");
+        int userHowMany = howManyDigits(userN, D); // Call the recursive function to count the occurrences of the digit
+        // in the user's number and store the result in variable userHowMany
+        System.out.println("The digit " + D + " occurs " + userHowMany + " times in " + userN + "\n"); // Print the result of counting the digit in the user's number
 
-        int howMany = howManyDigits(N, D);
-        System.out.println("The digit " + D + " occurs " + howMany + " times in " + N);
+        int howMany = howManyDigits(N, D); // Call the recursive function to count the occurrences of the digit
+        //  in the example number N and store the result in variable howMany
+        System.out.println("The digit " + D + " occurs " + howMany + " times in " + N); // Print the result of counting the digit in the example number N
 
-        input.close();
+        input.close(); // No more input is needed, so close the Scanner
     }
     
     /*****************************<howManyDigits>****************************
     * Description: Recursively counts the occurrences of a digit in a number.
     *   
-    * Parameters: N - the number to search in, D - the digit to count.
+    * Parameters: long N - the number to search in, int D - the digit to count.
     *
     * Pre: The number and digit exist.
     *
@@ -63,27 +65,29 @@ public class Assignment3Q4_Eddie_Wenker {
     *
     * Returns: The number of times the digit occurs in the number.
     *
-    * Called by: main method.
+    * Called by: main.
     * Calls: It calls itself recursively.
     ************************************************************************/
     public static int howManyDigits(long N, int D) {
-        int count = 0;
-        long runTime = String.valueOf(N).length();
-        if (N > 0) { // The length of N will still be greater than for base case, so this will run until N is reduced to 0 (base case)
-            System.out.println("This is one run (0 is base case): " + runTime);
-        }
-        // Base case: if N is 0, return 0
-        else {
-            System.out.println("Base case reached: " + N);
-            return 0;
+        int count = 0; // Initialize a counter to keep track of the occurrences of the digit D in the number N
+
+        // Base case: if N is 0 (entire N has been searched), return 0
+        if (N == 0) {
+            return 0; // At this point, the count of occurrences is calculated from the recursive calls, so return 0 to stop recusing.
         }
 
         // Recursive case: check the last digit and recurse on the rest
-        int lastDigit = (int)(N % 10);
-        if (lastDigit == D) {
-            count = 1;
+        int lastDigit = (int)(N % 10); // Get the last digit of N as an integer by taking the remainder when N is divided by 10
+        if (lastDigit == D) { // if the last digit matches the digit we are counting
+            count++; // increment the count
         }
-        return count + howManyDigits(N / 10, D);
+        return count + howManyDigits(N / 10, D); // Return the count for this digit of N plus the count from the rest of the number (N divided by 10 removes the last digit)
+        // n is the number of digits in N, and each recursive call reduces the number of digits by 1 until it reaches 0 (base case).
+        // The work inside each call is constant time.
+        // The number of recursive calls is equal to the number of digits in N, leading to a time complexity of O(n).
+        // T(n) = T(n-1) + O(1)
+        // = T(0) + O(n)
+        // = O(n)
     }
     
 }
