@@ -7,10 +7,10 @@
 * Date: February 21, 2026
 *
 * Purpose
-* This program uses a Fraction class to perform arithmetic operations
-* on fractions including addition, subtraction, multiplication, division,
-* negation, and exponentiation. It also simplifies fractions and handles
-* special cases like zero and infinity.
+* This program uses a function to recursively count the occurrences of a digit in a number.
+* It prompts the user to enter a number and a digit, then displays how many times that
+* digit occurs in the number by calling the recursive function howManyDigits
+* with the number and digit as arguments. It also demonstrates the function with a predefined number.
 **************************************************************************
 * I declare and confirm the following:
 * - I have not discussed this program code with anyone other than my
