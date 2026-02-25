@@ -7,10 +7,9 @@
 * Date: February 21, 2026
 *
 * Purpose
-* This program uses a Fraction class to perform arithmetic operations
-* on fractions including addition, subtraction, multiplication, division,
-* negation, and exponentiation. It also simplifies fractions and handles
-* special cases like zero and infinity.
+* This program uses a function to recursively reverse a string. 
+* It prompts the user to enter a string and then displays the reversed string
+* by calling the recursive function reverseString with the string as an argument.
 **************************************************************************
 * I declare and confirm the following:
 * - I have not discussed this program code with anyone other than my
