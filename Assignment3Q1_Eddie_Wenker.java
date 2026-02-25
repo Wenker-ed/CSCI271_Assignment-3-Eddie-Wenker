@@ -37,7 +37,7 @@ public class Assignment3Q1_Eddie_Wenker {
         Scanner input = new Scanner(System.in); // Create a Scanner object to read user input
         System.out.print("Enter a string: "); // Prompt the user to enter a string
         String s = input.nextLine(); // Read the entire line of input as a string and store it in variable s
-        input.close(); 
+        input.close(); // No more input is needed, so close the Scanner
 
         int length = recursiveLength(s); // Call the recursive function to find the length of the string and store the result in variable length
         System.out.println("Length of the string \"" + s + "\" is: " + length); // Print the length of the string

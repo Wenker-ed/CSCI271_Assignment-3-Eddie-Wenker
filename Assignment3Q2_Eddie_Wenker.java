@@ -33,12 +33,15 @@ import java.util.Scanner;
 public class Assignment3Q2_Eddie_Wenker {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String s = input.nextLine();
-        System.out.print("Enter a character: ");
-        char c = input.next().charAt(0);
-        input.close();
+
+        Scanner input = new Scanner(System.in); // Create a Scanner object to read user input
+
+        System.out.print("Enter a string: "); // Prompt the user to enter a string
+        String s = input.nextLine(); // Read the entire line of input as a string and store it in variable s
+
+        System.out.print("Enter a character: "); // Prompt the user to enter a character
+        char c = input.next().charAt(0); // Read the next input as a string and get the first character of that string, storing it in variable c
+        input.close(); // No more input is needed, so close the Scanner
 
         int Occurrences = OccurrencesCount(s, c);
         System.out.println("\'" + c + "\' occurs " + Occurrences + " times in \"" + s + "\"");
@@ -73,12 +76,4 @@ public class Assignment3Q2_Eddie_Wenker {
         return count + OccurrencesCount(str.substring(1), c);
     }
 
-    public static String recursiveReverse(String str) {
-        // Base case: if the string is empty, return an empty string
-        if (str.isEmpty()) {
-            return "";
-        }
-        // Recursive case: return the last character + reverse of the substring excluding the last character
-        return str.charAt(str.length() - 1) + recursiveReverse(str.substring(0, str.length() - 1));
-    }
-}//Calculate Running Time!
+}
