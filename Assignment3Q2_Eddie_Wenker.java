@@ -7,10 +7,11 @@
 * Date: February 21, 2026
 *
 * Purpose
-* This program uses a Fraction class to perform arithmetic operations
-* on fractions including addition, subtraction, multiplication, division,
-* negation, and exponentiation. It also simplifies fractions and handles
-* special cases like zero and infinity.
+* This program uses a function to recursively count the occurrences of a character in a string.
+* It prompts the user to enter a string and a character, then displays how many times that 
+* character occurs in the string by calling the recursive function OccurrencesCount 
+* with the string and character as arguments.
+*
 **************************************************************************
 * I declare and confirm the following:
 * - I have not discussed this program code with anyone other than my
@@ -43,37 +44,42 @@ public class Assignment3Q2_Eddie_Wenker {
         char c = input.next().charAt(0); // Read the next input as a string and get the first character of that string, storing it in variable c
         input.close(); // No more input is needed, so close the Scanner
 
-        int Occurrences = OccurrencesCount(s, c);
+        int Occurrences = OccurrencesCount(s, c); // Call the recursive function to count the occurrences of the character in the string and store the result in variable Occurrences
         System.out.println("\'" + c + "\' occurs " + Occurrences + " times in \"" + s + "\"");
     }
     
     /*****************************<OccurrencesCount>****************************
     * Description: Recursively counts the occurrences of a character in a string.
     *   
-    * Parameters: str - the string to search in, c - the character to count.
+    * Parameters: string str - the string to search in, char c - the character to count.
     *
     * Pre: The string and character exist.
     *
-    * Post: The count of occurrences is returned.
+    * Post: The count of occurrences as an integer is returned.
     *
     * Returns: The number of times the character occurs in the string.
     *
-    * Called by: main method.
+    * Called by: main.
     * Calls: It calls itself recursively.
     ************************************************************************/
     public static int OccurrencesCount(String str, char c) {
-        int runTime = str.length();
-        System.out.println("This is one run (0 is base case): " + runTime);
         // Base case: if the string is empty, return 0
         if (str.isEmpty()) {
-            return 0;
+            return 0; // At this point, the count of occurrences is calculated from the recursive calls, so return 0 to stop recusing.
         }
-        // Recursive case: check the first character and add the count from the rest of the string
-        int count = 0;
+        // if the string is not empty, check if the first character matches the character we are counting
+        int count = 0; // Initialize the character count to 0 for this call
         if (str.charAt(0) == c) {
-            count++;
+            count++; // increment the count
         }
+        // Recursive case: return the count for this character plus the count from the rest of the string
         return count + OccurrencesCount(str.substring(1), c);
+        // n is the length of the string, and each recursive call reduces the length by 1 until it reaches 0 (base case).
+        // The work inside each call is constant time.
+        // The number of recursive calls is equal to the length of the string, leading to a time complexity of O(n).
+        // T(n) = T(n-1) + O(1)
+        // = T(0) + O(n)
+        // = O(n)
     }
 
 }

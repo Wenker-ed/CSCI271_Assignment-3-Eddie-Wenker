@@ -46,7 +46,7 @@ public class Assignment3Q1_Eddie_Wenker {
     /*****************************<recursiveLength>****************************
     * Description: Recursively calculates the length of a string.
     *   
-    * Parameters: str - the string whose length is to be calculated.
+    * Parameters: string str - the string whose length is to be calculated.
     *
     * Pre: The string exists (it can be zero-length).
     *
@@ -63,7 +63,7 @@ public class Assignment3Q1_Eddie_Wenker {
             return 0; // At this point, the length of the string is calculated from the recursive calls, so return 0 to stop recusing.
         }
 
-        // Recursive case: return 1 + length of the substring excluding the first character
+        // Recursive case: return 1 + length of the substring excluding the first character (n-1)
         return 1 + recursiveLength(str.substring(1));
         // n is the length of the string, and each recursive call reduces the length by 1 until it reaches 0 (base case).
         // The work inside each call is constant time.
