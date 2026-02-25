@@ -74,7 +74,6 @@ public class Assignment3Q3_Eddie_Wenker {
     * Calls: It calls itself recursively.
     ************************************************************************/
     public static int max(int A[], int n) {
-        System.out.println("This is one run (0 is base case): " + n);
         // Base case: if reach the last element, return it
         if (n == 0) {
             return A[n]; // At this point, the maximum value is determined from the recursive calls, so return the last element to stop recursing.
